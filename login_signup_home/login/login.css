@@ -1,0 +1,141 @@
+/* 공통 설정 */
+:root {
+  --bg: #f7f7f7;
+  --text: #222;
+  --muted: #8d8d8d;
+  --line: #f2d94c; /* 상단 얇은 노란 라인 */
+  --primary: #feef73; /* 버튼 채도 낮은 노랑 */
+  --primary-text: #222;
+  --card-shadow: 0 0 14px -3px rgba(0, 0, 0, 0.25);
+  --radius-lg: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  background: #fff;
+  color: var(--text);
+}
+
+/* ===== 헤더 ===== */
+.top-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 54px;
+  padding: 0 12px;
+  background: #fff;
+}
+
+.icon-back {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.topbar-spacer {
+  width: 24px; /* 오른쪽 빈 공간 맞추기 */
+}
+
+.topbar-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--line);
+}
+
+/* ===== 콘텐츠 ===== */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+}
+
+.logo-wrap img {
+  width: 100px;
+  height: 100px;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.layer-wrap img {
+  margin-top: 10px;
+  height: 52px; /* 🔥 기존보다 살짝 키움 */
+}
+
+/* ===== 입력 폼 ===== */
+form {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center; /* 가운데 정렬 */
+}
+
+label {
+  display: none; /* 접근성용, UI에는 숨김 */
+}
+
+input {
+  width: 100%; /* 버튼과 동일한 넓이로 */
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--line);
+  outline: none;
+}
+
+/* ===== 버튼 ===== */
+.btn-login {
+  width: 100%; /* input과 넓이 맞춤 */
+  height: 50px;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--primary);
+  color: var(--primary-text);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-login:active {
+  background: #f4e35a;
+}
+
+/* ===== 회원가입 링크 ===== */
+.content a {
+  margin-top: 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.content a:hover {
+  text-decoration: underline;
+}

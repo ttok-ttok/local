@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="left-icons">
+        <button class="icon-btn" id="calendar-btn" aria-label="캘린더">
+          <img src="../images/calendar.svg" alt="calendar" />
+        </button>
+        <button class="icon-btn" id="alarm-btn" aria-label="알림">
+          <img src="../images/alarm_no.svg" alt="bell" />
+        </button>
+      </div>
+      <div class="right-icons">
+        <button class="icon-btn profile" id="profile-btn" aria-label="프로필">
+          <img src="../images/profile.svg" alt="profile" />
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="condition-card">
+        <button class="sound-toggle" aria-label="소리">
+          <img src="../images/sound_off.svg" alt="sound" />
+        </button>
+
+        <p class="question"></p>
+
+        <div class="mascot">
+          <img src="../images/character.svg" alt="mascot" />
+        </div>
+
+        <div class="condition-icons">
+          <button class="cond-btn" data-value="bad">
+            <img src="../images/bad_face.svg" alt="슬픔" />
+          </button>
+          <button class="cond-btn" data-value="soso">
+            <img src="../images/soso_face.svg" alt="보통" />
+          </button>
+          <button class="cond-btn" data-value="good">
+            <img src="../images/good_face.svg" alt="행복" />
+          </button>
+        </div>
+
+        <div class="voice-input">
+          <button class="mic-btn">
+            <img src="../images/mic.svg" alt="mic" />
+          </button>
+          <p class="voice-text">직접 말해보세요!</p>
+        </div>
+        <button class="ai-btn">
+          <img src="../images/chat.svg" alt="챗" /> AI 똑똑 상담
+        </button>
+      </section>
+    </main>
+
+    <script src="home.js"></script>
+  </body>
+</html>

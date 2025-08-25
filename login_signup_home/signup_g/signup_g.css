@@ -1,0 +1,153 @@
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --muted: #a5a5a5;
+  --line: #f2d94c; /* 노란색 진행바 */
+  --primary: #feef73; /* 버튼 활성 노랑 */
+  --primary-text: #222;
+  --radius-lg: 999px;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== 상단바 ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 12px;
+  position: relative;
+}
+
+.top-bar .title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.top-bar .icon-back,
+.top-bar .icon-out {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 진행바 */
+.topbar-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #e5e5e5;
+}
+.topbar-underline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--line);
+}
+.topbar-underline.step1::after {
+  width: 33.33%;
+}
+.topbar-underline.step2::after {
+  width: 66.66%;
+}
+.topbar-underline.step3::after {
+  width: 100%;
+}
+
+/* ===== 본문 ===== */
+.content {
+  padding: 46px 48px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.subtitle {
+  color: #757575;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  text-align: left;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+/* 선택 토글 버튼 */
+.toggle-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin-bottom: 48px;
+}
+
+.toggle-btn {
+  display: inline-block;
+  padding: 6px 14px 6px 14px;
+  border-radius: 30px;
+  border: 1px solid #a5a5a5;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff;
+  color: var(--text);
+  text-align: center;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.toggle-btn input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-btn.active {
+  background: #444;
+  color: #fff;
+  border-color: #444;
+}
+
+/* 완료 버튼 */
+.btn-done {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 81px;
+  border: none;
+  font-family: "Pretendard-Regular";
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.2s;
+  z-index: 1000; /* 다른 요소보다 위에 */
+}
+
+.btn-done:disabled {
+  background: #ddd;
+  color: #666;
+  cursor: not-allowed;
+}
+.btn-done:not(:disabled) {
+  background: var(--primary);
+  color: var(--primary-text);
+}

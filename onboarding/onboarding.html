@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>온보딩</title>
+    <link rel="stylesheet" href="onboarding.css" />
+  </head>
+  <body>
+    <main class="onboarding">
+      <div class="slides" id="slides">
+        <!-- 1번 슬라이드 -->
+        <section class="slide">
+          <img
+            src="../images/onboarding1.png"
+            alt="온보딩1"
+            class="onboard-img"
+          />
+          <button class="btn-next">다음</button>
+        </section>
+
+        <!-- 2번 슬라이드 -->
+        <section class="slide">
+          <img
+            src="../images/onboarding2.png"
+            alt="온보딩2"
+            class="onboard-img"
+          />
+          <button class="btn-next">다음</button>
+        </section>
+
+        <!-- 3번 슬라이드 -->
+        <section class="slide">
+          <img
+            src="../images/onboarding3.png"
+            alt="온보딩3"
+            class="onboard-img"
+          />
+          <button class="btn-next last">로그인하기</button>
+        </section>
+      </div>
+
+      <!-- 페이지 인디케이터 -->
+      <div class="indicator">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </main>
+
+    <script src="onboarding.js"></script>
+  </body>
+</html>

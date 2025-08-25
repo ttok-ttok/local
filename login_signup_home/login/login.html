@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+    <title>로그인</title>
+  </head>
+  <body>
+    <header class="top-bar" role="banner">
+      <button class="icon-back" aria-label="뒤로가기">
+        <img src="../images/back.svg" alt="icon-back" />
+      </button>
+      <h1 class="title">로그인</h1>
+      <div class="topbar-spacer" aria-hidden="true"></div>
+      <div class="topbar-underline" aria-hidden="true"></div>
+    </header>
+    <section class="content">
+      <div class="logo-wrap">
+        <img src="../images/logo.svg" alt="로고" />
+      </div>
+      <p class="subtitle">똑똑이의 하루 건강 노크</p>
+
+      <div class="layer-wrap">
+        <img src="../images/layer.svg" alt="똑똑레이어" />
+      </div>
+
+      <form action="#">
+        <label for="user-id">아이디</label>
+        <input
+          type="text"
+          id="user-id"
+          name="user-id"
+          placeholder="아이디를 입력하세요"
+          required
+        />
+        <label for="user-pw">비밀번호</label>
+        <input
+          type="password"
+          id="user-pw"
+          name="user-pw"
+          placeholder="비밀번호를 입력하세요"
+          required
+        />
+        <button type="submit" class="btn-login">로그인</button>
+      </form>
+      <a href="../signup/signup.html">회원가입</a>
+    </section>
+
+    <script src="login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup_s.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <header class="top-bar" role="banner">
+      <button class="icon-back" aria-label="뒤로가기" onclick="history.back()">
+        <img src="../images/back.svg" alt="icon-back" />
+      </button>
+      <h1 class="title">회원가입</h1>
+      <button
+        class="icon-out"
+        aria-label="나가기"
+        onclick="window.location.href='../login/login.html'"
+      >
+        <img src="../images/X.svg" alt="icon-out" />
+      </button>
+      <div class="topbar-spacer" aria-hidden="true"></div>
+      <div class="topbar-underline step1" aria-hidden="true"></div>
+    </header>
+    <section class="content">
+      <p class="subtitle">최근에 복용 중인 약이 있나요?</p>
+      <form id="signupForm" action="#">
+        <div class="toggle-group">
+          <input type="radio" id="option1" name="medicine" value="yes" />
+          <label for="option1" class="toggle-btn">있음</label>
+
+          <input type="radio" id="option2" name="medicine" value="no" />
+          <label for="option2" class="toggle-btn">없음</label>
+        </div>
+        <!-- 다음 버튼 -->
+        <button type="submit" id="nextBtn" class="btn-next" disabled>
+          다음
+        </button>
+      </form>
+    </section>
+    <script src="signup_s.js"></script>
+  </body>
+</html>

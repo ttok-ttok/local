@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 상담</title>
+    <link rel="stylesheet" href="chat.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+  </head>
+  <body>
+    <!-- ===== 상단 헤더 ===== -->
+    <header class="chat-header">
+      <img
+        src="../images/chating_out.svg"
+        alt="exit"
+        id="endChat"
+        class="header-btn"
+      />
+      <button id="profileBtn" class="profile-btn">
+        <img src="../images/profile.svg" alt="profile" />
+      </button>
+    </header>
+
+    <!-- ===== 채팅 영역 ===== -->
+    <main class="chat-container" id="chatContainer"></main>
+
+    <!-- ===== 입력 영역 ===== -->
+    <footer class="chat-footer">
+      <div class="input-box">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="메시지를 입력하세요..."
+        />
+      </div>
+      <button id="micBtn" class="circle-btn">
+        <img src="../images/mic.svg" alt="mic" />
+      </button>
+      <button id="sendBtn" class="circle-btn">
+        <img src="../images/send.svg" alt="send" />
+      </button>
+    </footer>
+
+    <script src="chat.js"></script>
+  </body>
+</html>

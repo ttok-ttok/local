@@ -1,0 +1,296 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+/* 상단 바 */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.topbar-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.topbar-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* 액션 리스트 */
+.action-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 각 행 */
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #f5f5f5;
+}
+
+/* 왼쪽 아이콘+텍스트 */
+.action-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-icon svg {
+  width: 29px;
+  height: 29px;
+  display: block;
+}
+
+.action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+}
+
+.action-label {
+  width: 73px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #757575;
+  line-height: 24px;
+}
+
+/* 토글 버튼 */
+.toggle-btn {
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* 저장 버튼 */
+.save-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  font-size: 17px;
+  font-weight: 500;
+  color: #353535;
+  line-height: 29px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.save-btn span {
+  display: inline-block;
+  width: 83px;
+  height: 29px;
+}
+
+/* 알림 extra 영역 */
+.alarm-extra.hidden {
+  display: none;
+}
+
+.alarm-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 0 0 0;
+}
+
+/* 라벨 스타일 */
+.alarm-settings .label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #4e4e4e;
+  margin-bottom: 6px;
+  margin-left: 16px; /* 좌측 여백 */
+}
+
+/* 요일 버튼 컨테이너 */
+.alarm-settings .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 12px;
+  width: calc(100% - 32px); /* 좌우 여백 포함 */
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.alarm-settings .day-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent; /* 기본은 테두리 없음 */
+  background: #d9d9d9; /* 기본 배경 */
+  color: #757575; /* 기본 글자색 */
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border 0.15s ease;
+}
+
+.alarm-settings .day-btn.active {
+  background: #fafafa; /* 활성화: 밝은 회색 배경 */
+  color: #757575; /* 글자색은 그대로 */
+  border: 2px solid #ff8b00; /* 주황색 테두리 */
+}
+.time-select {
+  position: relative;
+  width: calc(100% - 32px);
+  margin: 0 16px;
+  --day: calc(100% / 7);
+  --gap: 24px; /* 가운데 틈 크기 */
+  height: 44px; /* 절대배치된 래퍼들이 겹치지 않게 컨테이너 높이 확보 */
+}
+
+.time-select .select-wrapper {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e1e0e0;
+}
+
+.time-select .select-wrapper select {
+  width: 100%;
+  border: none;
+  padding: 6px 0;
+  font-size: 17px;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  text-align: center;
+  padding-right: 20px;
+  color: #757575;
+  box-sizing: border-box;
+}
+
+.time-select .select-wrapper:nth-child(1) {
+  left: 0;
+  width: calc(3 * var(--day) - var(--gap));
+}
+
+.time-select .select-wrapper:nth-child(2) {
+  left: calc(3 * var(--day) + var(--gap));
+  width: calc(3 * var(--day) - var(--gap));
+}
+
+.time-select .select-wrapper::after {
+  content: '⌵';
+  font-size: 16px;
+  color: #757575;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+/* 
+.select-wrapper {
+  position: relative;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e1e0e0;
+}
+.select-wrapper select {
+  width: 100%;
+  border: none;
+  padding: 6px 0;
+  font-size: 17px;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  text-align: center;
+  padding-right: 20px;
+  color: #757575;
+  box-sizing: border-box;
+}
+*/
+
+/* 드롭다운 펼쳤을 때 옵션 */
+.select-wrapper select option {
+  background: #c9c8c8; /* 옵션 배경 */
+  color: #000000; /* 옵션 텍스트 검정 */
+}
+
+/* hover 시 효과 */
+.select-wrapper select option:hover {
+  background: #8b8686; /* hover 시 진한 회색 */
+  color: #ffffff; /* hover 시 흰색 글자 */
+}
+
+/* 화살표
+.select-wrapper::after {
+  content: '⌵';
+  font-size: 16px;
+  color: #757575;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+*/
+/* 드롭다운 스크롤바 커스텀 */
+.select-wrapper select {
+  scrollbar-width: thin; /* Firefox 얇게 */
+  scrollbar-color: #8b8686 #c9c8c8; /* thumb 색, 트랙 색 */
+}
+
+/* Chrome, Edge, Safari */
+.select-wrapper select::-webkit-scrollbar {
+  width: 4px; /* 스크롤바 두께 */
+}
+
+.select-wrapper select::-webkit-scrollbar-track {
+  background: #c9c8c8; /* 트랙도 옵션 영역이랑 같은 회색 */
+  border-radius: 10px;
+}
+
+.select-wrapper select::-webkit-scrollbar-thumb {
+  background-color: #8b8686; /* thumb은 진한 회색 */
+  border-radius: 10px;
+}
+
+.select-wrapper select::-webkit-scrollbar-thumb:hover {
+  background-color: #757575; /* hover 시 더 진하게 */
+}

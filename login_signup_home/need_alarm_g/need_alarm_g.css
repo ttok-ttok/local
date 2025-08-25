@@ -1,0 +1,83 @@
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --muted: #8d8d8d;
+  --primary: #feef73; /* 노란 버튼 */
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ===== 본문 ===== */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.icon-box {
+  margin-bottom: 24px;
+}
+
+.app-icon {
+  padding-top: 125px;
+  width: 100px;
+  height: 100px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#layer {
+  width: 53px;
+  height: 61px;
+  padding-top: 169px;
+}
+
+/* ===== 하단 버튼 영역 ===== */
+.footer {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer .btn {
+  flex: 1;
+  height: 81px;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-no {
+  background: #f2f2f2;
+  color: var(--text);
+}
+
+.btn-yes {
+  background: var(--primary);
+  color: var(--text);
+}

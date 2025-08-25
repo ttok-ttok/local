@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <header class="top-bar" role="banner">
+      <button class="icon-back" aria-label="뒤로가기" onclick="history.back()">
+        <img src="../images/back.svg" alt="icon-back" />
+      </button>
+      <h1 class="title">회원가입</h1>
+      <button class="icon-out" aria-label="나가기">
+        <img
+          src="../images/X.svg"
+          alt="icon-out"
+          onclick="window.location.href='../login/login.html'"
+        />
+      </button>
+      <div class="topbar-spacer" aria-hidden="true"></div>
+      <div class="topbar-underline" aria-hidden="true"></div>
+    </header>
+    <section class="content">
+      <p class="subtitle">본인이 해당하는 곳은 어디인가요?</p>
+      <form id="step1" action="#">
+        <div class="toggle-group">
+          <input type="radio" id="option1" name="choice" value="senior" />
+          <label for="option1" class="toggle-btn"
+            >시니어 회원 (만 60세 이상)</label
+          >
+
+          <input type="radio" id="option2" name="choice" value="guardian" />
+          <label for="option2" class="toggle-btn">보호자 (가족, 지인)</label>
+        </div>
+        <button type="submit" id="nextBtn" class="btn-next" disabled>
+          다음
+        </button>
+      </form>
+    </section>
+    <script src="signup.js"></script>
+  </body>
+</html>

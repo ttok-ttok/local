@@ -1,0 +1,183 @@
+:root {
+  --bg: #fff;
+  --card-bg: #fefbac80;
+  --primary: #feef73;
+  --text: #222;
+  --muted: #888;
+  --radius: 16px;
+  --point: #ff9900;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard";
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== 헤더 ===== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(6px, 2vw, 18px);
+  padding-bottom: 0px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-btn img {
+  width: clamp(32px, 7vw, 44px);
+  height: clamp(32px, 7vw, 44px);
+}
+
+.profile img {
+  width: clamp(48px, 9vw, 52px);
+  height: clamp(48px, 9vw, 52px);
+  border-radius: 50%;
+}
+
+/* ===== 메인 콘텐츠 ===== */
+.content {
+  padding: clamp(8px, 4vw, 24px);
+  display: flex;
+  justify-content: center;
+}
+
+.condition-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: clamp(20px, 5vw, 40px) clamp(12px, 4vw, 24px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 10vw, 52px);
+  width: 100%;
+  min-height: calc(100vh - 150px);
+}
+
+/* 소리 버튼 */
+.sound-toggle {
+  border: none;
+  background: none;
+  position: absolute;
+  top: clamp(8px, 2vw, 16px);
+  left: clamp(8px, 2vw, 16px);
+}
+
+.sound-toggle img {
+  width: clamp(36px, 8vw, 48px);
+  height: clamp(36px, 8vw, 48px);
+}
+
+/* 질문 텍스트 */
+.question {
+  margin-top: clamp(50px, 2vw, 80px);
+  background-color: #fafafa;
+  border-radius: 20px;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 500;
+  width: clamp(300px, 80%, 340px);
+  height: clamp(70px, 20vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(12px, 4vw, 20px);
+  box-sizing: border-box;
+  /* margin 제거 */
+}
+
+/* 마스코트 */
+.mascot img {
+  width: clamp(140px, 32vw, 200px);
+  margin: 0;
+}
+
+/* ===== 컨디션 선택 ===== */
+.condition-icons {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 32px);
+}
+
+.cond-btn {
+  background: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: clamp(8px, 2vw, 12px);
+  width: clamp(60px, 14vw, 80px);
+  height: clamp(60px, 14vw, 80px);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.cond-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.cond-btn:active {
+  transform: scale(0.9);
+  background: var(--primary);
+}
+
+/* ===== 음성 입력 ===== */
+.voice-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mic-btn {
+  width: clamp(72px, 16vw, 96px);
+  height: clamp(72px, 16vw, 96px);
+  border-radius: 50%;
+  border: 3px solid var(--point);
+  background: #fff;
+  cursor: pointer;
+  margin-bottom: clamp(6px, 2vw, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-btn img {
+  width: clamp(28px, 8vw, 40px);
+  height: clamp(28px, 8vw, 40px);
+}
+
+.voice-text {
+  color: var(--point);
+  font-weight: 600;
+  font-size: clamp(14px, 3.5vw, 18px);
+  margin: 0;
+}
+
+/* ===== AI 버튼 (카드 하단) ===== */
+.ai-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 12px);
+  width: 100%;
+  padding: clamp(14px, 3vw, 18px);
+  border: none;
+  border-radius: var(--radius);
+  background: #fafafa;
+  cursor: pointer;
+  font-size: clamp(16px, 4vw, 18px);
+  font-weight: 600;
+  margin-top: auto; /* 카드 하단 정렬 */
+}
+
+.ai-btn img {
+  width: clamp(20px, 6vw, 24px);
+  height: clamp(20px, 6vw, 24px);
+}

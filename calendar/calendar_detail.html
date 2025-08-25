@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘의 건강 상태</title>
+    <link rel="stylesheet" href="calendar_detail.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <div class="app">
+      <!-- 상단 바: 홈, 알림, 타이틀 -->
+      <header class="topbar" role="banner" aria-label="상단 바">
+        <div class="topbar-left">
+          <button class="icon-btn" aria-label="홈">
+            <!-- 홈 아이콘 -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="30"
+              viewBox="0 0 29 30"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_47_5356)">
+                <path
+                  d="M15.7348 0.987207C15.0381 0.341504 13.9619 0.341504 13.2709 0.987207L0.583404 12.7685C0.0396539 13.2782 -0.141596 14.0655 0.130279 14.7565C0.402154 15.4476 1.06485 15.9063 1.81251 15.9063H2.71876V25.8751C2.71876 27.8745 4.34434 29.5001 6.34376 29.5001H22.6563C24.6557 29.5001 26.2813 27.8745 26.2813 25.8751V15.9063H27.1875C27.9352 15.9063 28.6035 15.4476 28.8754 14.7565C29.1473 14.0655 28.966 13.2726 28.4223 12.7685L15.7348 0.987207ZM13.5938 18.6251H15.4063C16.9072 18.6251 18.125 19.8429 18.125 21.3438V26.7813H10.875V21.3438C10.875 19.8429 12.0928 18.6251 13.5938 18.6251Z"
+                  fill="#FCC57B"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_47_5356">
+                  <rect
+                    width="29"
+                    height="29"
+                    fill="white"
+                    transform="translate(0 0.5)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+          <button class="icon-btn" aria-label="알림">
+            <!-- 알림 아이콘 -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="28"
+              viewBox="0 0 25 28"
+              fill="none"
+            >
+              <path
+                d="M8.45801 24.0522L16.622 24.0093C16.1072 27.1491 12.3817 28.5547 9.91463 26.5397C9.14595 25.9118 8.62897 25.029 8.45801 24.0522Z"
+                fill="#757575"
+              />
+              <path
+                opacity="0.3"
+                d="M12.4169 0.907381C15.1618 0.89295 17.8001 1.96773 19.7513 3.89528C21.7025 5.82283 22.8068 8.44526 22.8212 11.1857L22.8503 16.6964L24.8301 21.0396C24.9201 21.2383 24.959 21.4562 24.9432 21.6737C24.9274 21.8911 24.8574 22.1012 24.7397 22.2848C24.6219 22.4684 24.4601 22.6198 24.2689 22.7251C24.0776 22.8304 23.8631 22.8864 23.6447 22.8879L1.42701 23.0047C1.20833 23.0058 0.992843 22.9523 0.800171 22.849C0.607499 22.7457 0.443766 22.596 0.32388 22.4134C0.203994 22.2308 0.131765 22.0212 0.113769 21.8036C0.0957741 21.586 0.132584 21.3674 0.220848 21.1676L2.15056 16.8039L2.12141 11.2766L2.12649 10.9321C2.20678 8.25593 3.32443 5.71534 5.24397 3.84561C7.16352 1.97587 9.73507 0.921605 12.4169 0.907381Z"
+                fill="#757575"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="topbar-right">
+          <button class="icon-btn" id="profile-btn" aria-label="프로필">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="51"
+              height="50"
+              viewBox="0 0 51 50"
+              fill="none"
+            >
+              <path
+                opacity="0.5"
+                d="M46 25C46 36.5983 36.5983 46 25 46C13.4017 46 4 36.5983 4 25C4 13.4017 13.4017 4 25 4C36.5983 4 46 13.4017 46 25Z"
+                fill="#757575"
+              />
+              <path
+                d="M34.8521 39.6062C31.847 41.6322 28.2844 42.7141 24.6373 42.7083C20.9902 42.7141 17.4276 41.6322 14.4224 39.6062C13.1389 38.7417 12.5906 37.0958 13.3386 35.7562C14.8835 32.9792 18.071 31.25 24.6373 31.25C31.2035 31.25 34.391 32.9792 35.938 35.7562C36.6818 37.0958 36.1356 38.7417 34.8521 39.6062ZM24.6373 25C26.328 25 27.9495 24.3415 29.1451 23.1694C30.3406 21.9973 31.0123 20.4076 31.0123 18.75C31.0123 17.0924 30.3406 15.5027 29.1451 14.3306C27.9495 13.1585 26.328 12.5 24.6373 12.5C22.9465 12.5 21.325 13.1585 20.1295 14.3306C18.9339 15.5027 18.2623 17.0924 18.2623 18.75C18.2623 20.4076 18.9339 21.9973 20.1295 23.1694C21.325 24.3415 22.9465 25 24.6373 25Z"
+                fill="#757575"
+              />
+              <circle
+                cx="25"
+                cy="25"
+                r="24"
+                stroke="#FCC57B"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+  <div class="container">
+    <!-- 날짜 & 네비게이션 -->
+    <div class="date-nav">
+      <button id="prev-day" class="nav-btn" aria-label="이전 날짜">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
+          <path d="M8 14L2 8L8 2" stroke="#757575" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="selected-date" class="selected-date"></div>
+
+      <button id="next-day" class="nav-btn" aria-label="다음 날짜">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
+          <path d="M2 14L8 8L2 2" stroke="#757575" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <h2 class="title">오늘의 건강 상태</h2>
+
+    <!-- 레이더 차트 -->
+    <div class="chart-container">
+      <canvas id="healthChart"></canvas>
+    </div>
+
+    <!-- 답변한 날 -->
+    <div id="health-detail" class="detail hidden">
+      <p id="summary"></p>
+      <p><strong>숙면</strong><br><span id="sleep"></span></p>
+      <p><strong>기분</strong><br><span id="mood"></span></p>
+      <p><strong>식사</strong><br><span id="meal"></span></p>
+      <p><strong>몸 상태</strong><br><span id="condition"></span></p>
+      <p><strong>활력</strong><br><span id="energy"></span></p>
+      <p><strong>조언</strong><br><span id="advice"></span></p>
+    </div>
+
+    <!-- 답변하지 않은 날 -->
+    <div id="health-empty" class="detail hidden">
+      <p>오늘을 기록하지 않았습니다.</p>
+    </div>
+  </div>
+</main>
+
+<!-- 닫기 버튼 -->
+<footer>
+  <button class="close-btn">닫기</button>
+</footer>
+    </div>
+    <script src="calendar_detail.js"></script>
+  </body>
+</html>

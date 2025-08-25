@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup2.css" />
+    <link rel="stylesheet" href="../etc/fonts.css" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <header class="top-bar" role="banner">
+      <button class="icon-back" aria-label="뒤로가기" onclick="history.back()">
+        <img src="../images/back.svg" alt="icon-back" />
+      </button>
+      <h1 class="title">회원가입</h1>
+      <button
+        class="icon-out"
+        aria-label="나가기"
+        onclick="window.location.href='../login/login.html'"
+      >
+        <img src="../images/X.svg" alt="icon-out" />
+      </button>
+      <div class="topbar-spacer" aria-hidden="true"></div>
+      <div class="topbar-underline step1" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+      <form id="signupForm" action="#">
+        <div class="input-things">
+          <!-- 이름 -->
+          <input
+            type="text"
+            id="user-name"
+            name="user-name"
+            placeholder="이름"
+            required
+          />
+          <p id="name-error" class="error-message"></p>
+
+          <!-- 아이디 + 중복확인 버튼 -->
+          <div class="id-wrapper">
+            <input
+              type="text"
+              id="user-id"
+              name="user-id"
+              placeholder="아이디"
+              required
+            />
+            <button type="button" id="checkIdBtn" class="check-btn">
+              중복확인
+            </button>
+          </div>
+          <p class="id-requirements">6~12자 영문, 숫자로 입력해 주세요</p>
+          <p id="id-error" class="error-message"></p>
+
+          <!-- 비밀번호 -->
+          <div class="pw-wrapper">
+            <input
+              type="password"
+              id="user-pw"
+              name="user-pw"
+              placeholder="비밀번호"
+              required
+            />
+            <button type="button" class="eye-btn">
+              <img src="../images/eye.svg" alt="비밀번호 보기" />
+            </button>
+          </div>
+
+          <!-- 비밀번호 확인 -->
+          <div class="pw-wrapper">
+            <input
+              type="password"
+              id="user-pw-confirm"
+              name="user-pw-confirm"
+              placeholder="비밀번호 재입력"
+              required
+            />
+            <button type="button" class="eye-btn">
+              <img src="../images/eye.svg" alt="비밀번호 보기" />
+            </button>
+          </div>
+          <p class="pw-requirements">
+            영문, 숫자를 포함해 8자 이상 입력해 주세요
+          </p>
+          <p id="pw-error" class="error-message"></p>
+        </div>
+
+        <!-- 다음 버튼 -->
+        <button type="submit" id="nextBtn" class="btn-next" disabled>
+          다음
+        </button>
+      </form>
+    </section>
+
+    <script src="signup2.js"></script>
+  </body>
+</html>
