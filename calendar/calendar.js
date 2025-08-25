@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${y}-${m}-${d}`;
   }
 
-  // 📌 기분별 아이콘 (SVG 문자열)
+  // 📌 기분별 아이콘 (SVG 문자열) - 'soso' 키는 올바르게 수정되었습니다.
   const moodIcons = {
     bad: `
       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -30,47 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
     `,
   };
 
-  let current = new Date(); // 📌 오늘 날짜 기준으로 시작
-  let monthlyData = {};
-
-  // ✅ localStorage에서 데이터 불러오기
-  function fetchMonthData(year, month) {
-    const saved = JSON.parse(localStorage.getItem('monthlyData')) || {};
-    monthlyData = saved;
-  }
-
-  // ✅ localStorage에 데이터 저장 (예: 오늘 기분 기록 시)
-  function saveMood(dateKey, mood) {
-    const saved = JSON.parse(localStorage.getItem('monthlyData')) || {};
-    saved[dateKey] = mood;
-    localStorage.setItem('monthlyData', JSON.stringify(saved));
-    monthlyData = saved;
-  }
+  let current = new Date();
 
   function renderCalendar(date) {
     calendar.innerHTML = '';
 
     const year = date.getFullYear();
-    const month = date.getMonth(); // 0 = 1월
+    const month = date.getMonth();
     headerText.textContent = `${year}년 ${month + 1}월`;
 
-    // 📌 첫째 날 요일 (월요일 시작 기준 보정)
     let firstDay = new Date(year, month, 1).getDay();
     firstDay = firstDay === 0 ? 6 : firstDay - 1;
 
     const lastDate = new Date(year, month + 1, 0).getDate();
     const today = new Date();
 
-    // 월별 데이터 불러오기
-    fetchMonthData(year, month);
-
-    // 빈칸 채우기
     for (let i = 0; i < firstDay; i++) {
       const empty = document.createElement('div');
       calendar.appendChild(empty);
     }
 
-    // 날짜 넣기
     for (let d = 1; d <= lastDate; d++) {
       const dayEl = document.createElement('div');
       dayEl.classList.add('day');
@@ -93,13 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
         dayEl.classList.add('future');
       }
 
-      // localStorage에서 기분 가져오기
+      // localStorage에서 `mood_날짜` 형식의 키로 직접 데이터를 가져옵니다.
       const mood = localStorage.getItem(`mood_${dateKey}`);
       if (mood && moodIcons[mood]) {
         circleEl.innerHTML = moodIcons[mood];
       }
 
-      // 원 클릭 이벤트 (선택 → 상세 이동)
       circleEl.addEventListener('click', () => {
         if (circleEl.classList.contains('selected')) {
           window.location.href = `calendar_detail.html?date=${dateKey}`;
@@ -111,29 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // 요소 합치기
       dayEl.appendChild(numEl);
       dayEl.appendChild(circleEl);
       calendar.appendChild(dayEl);
     }
   }
 
-  // 초기 렌더링
   renderCalendar(current);
 
-  // 이전 달
   prevBtn.addEventListener('click', () => {
     current.setMonth(current.getMonth() - 1);
     renderCalendar(current);
   });
 
-  // 다음 달
   nextBtn.addEventListener('click', () => {
     current.setMonth(current.getMonth() + 1);
     renderCalendar(current);
   });
 
-  // ===== 상단 버튼 이벤트 =====
+  // ===== 상단 버튼 이벤트 (이하 동일) =====
   const profileBtn = document.getElementById('profile-btn');
   if (profileBtn) {
     profileBtn.addEventListener('click', () => {
